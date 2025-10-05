@@ -1,6 +1,14 @@
+#include <QApplication>
+#include <QWidget>
 #include <iostream>
+#include "MainWindow.hpp"
 
-int main() {
-    std::cout << "New Projekt because i ruined the first one nice" << std::endl;
-    return 0;
+int main(int argc, char *argv[]) {
+    QApplication a(argc, argv); // Startet die Qt-Anwendung
+    
+    MyWindow w; // Erstellt dein Hauptfenster
+    w.show();   // Zeigt das Fenster an
+    
+    return a.exec(); // Startet die Event-Schleife (hält das Programm am Laufen)
 }
+
