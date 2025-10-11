@@ -12,7 +12,7 @@ public:
 
 private slots:
     QString processInput();
-    //std::string doSearchStuff();
+    std::string doSearchStuff();
     //void benutzeApiKey();
 
 private:

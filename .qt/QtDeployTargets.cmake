@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_SearchBroV2_FILE /home/hosenbendiger/vsc-projecte/SearchBroV2/SearchBroV2)
+set(__QT_DEPLOY_TARGET_SearchBroV2_TYPE EXECUTABLE)

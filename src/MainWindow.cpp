@@ -14,7 +14,7 @@ MyWindow::MyWindow(QWidget *parent)
         "QWidget { background-color: #2b2b2b; }"
         "QLineEdit { "
         "   background-color: #3b3b3b;"
-        "   color: #ffffff;"
+        "   color: #ffffffff;"
         "   border: 2px solid #4b4b4b;"
         "   border-radius: 5px;"
         "   padding: 5px;"
@@ -26,12 +26,20 @@ MyWindow::MyWindow(QWidget *parent)
     layout->addWidget(inputField);
 
     connect(inputField, &QLineEdit::returnPressed, this, &MyWindow::processInput);
+    connect(inputField, &QLineEdit::returnPressed, this, &MyWindow::doSearchStuff);
 }
 
 QString MyWindow::processInput() {
     QString inputFieldText = inputField->text();
     qDebug() << "Input Text:" << inputFieldText;
+    inputField->clear();
+
     return inputFieldText;
 }
 
+
+
+std::string MyWindow::doSearchStuff() {
+
+}
 MyWindow::~MyWindow() = default;

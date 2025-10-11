@@ -2,6 +2,8 @@
 #include <QWidget>
 #include <iostream>
 #include "MainWindow.hpp"
+#include "KIStuff.hpp"
+ 
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv); // Startet die Qt-Anwendung
