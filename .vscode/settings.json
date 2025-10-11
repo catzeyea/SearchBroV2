@@ -1,6 +1,10 @@
 {
     "files.associations": {
         "qwidget": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "qvboxlayout": "cpp",
+        "qdebug": "cpp",
+        "qlineedit": "cpp",
+        "qapplication": "cpp"
     }
 }
