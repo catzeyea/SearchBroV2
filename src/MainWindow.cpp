@@ -1,4 +1,6 @@
 #include "MainWindow.hpp"
+#include <QMainWindow>
+#include <QLineEdit>
 #include <QVBoxLayout>
 #include <QWidget>
 #include <QDebug>
