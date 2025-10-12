@@ -22,6 +22,7 @@ find_package(Python COMPONENTS Interpreter Development REQUIRED)
 add_executable(SearchBroV2
     src/main.cpp
     src/MainWindow.cpp
+    src/include/MainWindow.hpp
     src/KIStuff.cpp
 
 )
@@ -29,11 +30,8 @@ add_executable(SearchBroV2
 
 
 # Include-Verzeichnis
-target_include_directories(SearchBroV2 PRIVATE 
-${CMAKE_SOURCE_DIR}/extern/pybind11/include
-${Python_INCLUDE_DIRS}
-${CMAKE_SOURCE_DIR}/src/include
-)
+target_include_directories(SearchBroV2 PRIVATE ${pybind11_INCLUDE_DIRS} ${Python_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/src/include)
+
 
 # Qt + pybind11 + Python verlinken
 target_link_libraries(SearchBroV2
@@ -46,6 +44,3 @@ target_link_libraries(SearchBroV2
         Python::Python
         
 )
-message(STATUS "Python include dirs: ${Python_INCLUDE_DIRS}")
-message(STATUS "pybind11 include dirs: ${pybind11_INCLUDE_DIRS}")
-message(STATUS "Python libraries: ${Python_LIBRARIES}")

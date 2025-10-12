@@ -2,6 +2,7 @@
 #include <QVBoxLayout>
 #include <QWidget>
 #include <QDebug>
+#include <iostream>
 
 MyWindow::MyWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -40,6 +41,7 @@ QString MyWindow::processInput() {
 
 
 std::string MyWindow::doSearchStuff() {
-
+    std::cout << "BlahBlah" << std::endl;
+    return "blahbalh";
 }
 MyWindow::~MyWindow() = default;
