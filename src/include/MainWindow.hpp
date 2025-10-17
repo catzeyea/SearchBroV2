@@ -3,12 +3,12 @@
 #include <QMainWindow>
 #include <QLineEdit>
 
-class MyWindow : public QMainWindow {
+class MainWindow : public QMainWindow {
     Q_OBJECT
 
 public:
-    explicit MyWindow(QWidget *parent = nullptr);
-    ~MyWindow();
+    explicit MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
 
 private slots:
     QString processInput();

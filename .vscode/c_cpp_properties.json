@@ -4,7 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/home/hosenbendiger/.local/share/mise/installs/python/3.13.7/include/python3.13"
+                "/home/hosenbendiger/.local/share/mise/installs/python/3.13.7/include/python3.13",
+                "/usr/include/qt/QtWidgets"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",

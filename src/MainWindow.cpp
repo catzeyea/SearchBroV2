@@ -6,7 +6,7 @@
 #include <QDebug>
 #include <iostream>
 
-MyWindow::MyWindow(QWidget *parent)
+MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     inputField = new QLineEdit(this);
@@ -28,11 +28,11 @@ MyWindow::MyWindow(QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout(centralWidget);
     layout->addWidget(inputField);
 
-    connect(inputField, &QLineEdit::returnPressed, this, &MyWindow::processInput);
-    connect(inputField, &QLineEdit::returnPressed, this, &MyWindow::doSearchStuff);
+    connect(inputField, &QLineEdit::returnPressed, this, &MainWindow::processInput);
+    connect(inputField, &QLineEdit::returnPressed, this, &MainWindow::doSearchStuff);
 }
 
-QString MyWindow::processInput() {
+QString MainWindow::processInput() {
     QString inputFieldText = inputField->text();
     qDebug() << "Input Text:" << inputFieldText;
     inputField->clear();
@@ -42,8 +42,9 @@ QString MyWindow::processInput() {
 
 
 
-std::string MyWindow::doSearchStuff() {
-    std::cout << "BlahBlah" << std::endl;
-    return "blahbalh";
+std::string MainWindow::doSearchStuff() {
+    std::cout<<"nhm"<< std::endl;
+    return "a";
+
 }
-MyWindow::~MyWindow() = default;
+MainWindow::~MainWindow() = default;

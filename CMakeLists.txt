@@ -15,7 +15,7 @@ find_package(Qt6 REQUIRED COMPONENTS Widgets Core Gui Network Test)
 # pybind11 finden
 find_package(pybind11 REQUIRED)
 
-# Python (Interpreter + Development) finden
+# Python (Interpreter + Development) findens
 find_package(Python COMPONENTS Interpreter Development REQUIRED)
 
 # Executable
