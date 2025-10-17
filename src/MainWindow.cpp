@@ -1,4 +1,5 @@
 #include "MainWindow.hpp"
+#include "KIStuff.hpp"
 #include <QMainWindow>
 #include <QLineEdit>
 #include <QVBoxLayout>
@@ -43,8 +44,8 @@ QString MainWindow::processInput() {
 
 
 std::string MainWindow::doSearchStuff() {
-    std::cout<<"nhm"<< std::endl;
     return "a";
-
 }
+
+
 MainWindow::~MainWindow() = default;
