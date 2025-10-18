@@ -9,7 +9,9 @@ def generate_text(prompt: str) -> str:
             {"role": "user", "content": prompt}
         ],
         "stream": False
+        
 }   
+
 
     response = requests.post(url, json=data)
     result = response.json()

@@ -2,6 +2,7 @@
 
 #include <QMainWindow>
 #include <QLineEdit>
+#include <QVBoxLayout>
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
@@ -12,10 +13,8 @@ public:
 
 private slots:
     QString processInput();
-    std::string doSearchStuff();
-    //void benutzeApiKey();
+    std::string doSearchStuff(std::string& output);
 
 private:
     QLineEdit *inputField;
 };
-

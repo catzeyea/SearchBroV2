@@ -30,22 +30,25 @@ MainWindow::MainWindow(QWidget *parent)
     layout->addWidget(inputField);
 
     connect(inputField, &QLineEdit::returnPressed, this, &MainWindow::processInput);
-    connect(inputField, &QLineEdit::returnPressed, this, &MainWindow::doSearchStuff);
+    
 }
 
 QString MainWindow::processInput() {
     QString inputFieldText = inputField->text();
     qDebug() << "Input Text:" << inputFieldText;
     inputField->clear();
-
+    KIStuff ki;
+    std::string inputString = inputFieldText.toStdString();
+    ki.UserStuff(inputString);
     return inputFieldText;
 }
 
 
 
-std::string MainWindow::doSearchStuff() {
+std::string MainWindow::doSearchStuff(std::string& output) {
     return "a";
 }
+
 
 
 MainWindow::~MainWindow() = default;

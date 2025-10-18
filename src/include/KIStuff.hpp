@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 // #define PY_SSIZE_T_CLEAN
 // #undef slots
@@ -12,5 +13,6 @@
 class KIStuff {
     public:
     // Call the Python function
-        int UserStuff();
+        int UserStuff(std::string& inputFieldText);
+
 };

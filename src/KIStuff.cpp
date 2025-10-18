@@ -1,11 +1,15 @@
 #include "KIStuff.hpp"
+#include "Colors.hpp"
 #include <pybind11/embed.h>
 #include <iostream>
 #include <filesystem>
 #include <string>
+#include <QDebug>
+//std::string& inputFieldText
+using namespace color;
 namespace py = pybind11;
 namespace fs = std::filesystem;
-int KIStuff::UserStuff() {
+int KIStuff::UserStuff(std::string& inputFieldText) {
     static py::scoped_interpreter guard{}; 
     py::module sys = py::module::import("sys");
 
@@ -18,16 +22,13 @@ int KIStuff::UserStuff() {
     // Load Python Script
     py::module llm = py::module::import("llm_module");
 
-    std::string userInput;
+    //std::string userInput;
     
-    while (true) {
-        
-        std::cout << "Du > ";
-        std::getline(std::cin, userInput);
-        if (userInput == "exit") break;
 
-        std::string output = llm.attr("generate_text")(userInput).cast<std::string>();
-        std::cout << "KI > " << output << "\n";
-    }
+        system("clear");
+        std::cout << "Your input >>> " << green << inputFieldText << reset << "\n";
+
+        std::string output = llm.attr("generate_text")(inputFieldText).cast<std::string>();
+        std::cout << "KI > " << bright_cyan << output << reset << "\n";
     return 0;
 }
