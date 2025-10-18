@@ -19,7 +19,9 @@ int KIStuff::UserStuff() {
     py::module llm = py::module::import("llm_module");
 
     std::string userInput;
+    
     while (true) {
+        
         std::cout << "Du > ";
         std::getline(std::cin, userInput);
         if (userInput == "exit") break;

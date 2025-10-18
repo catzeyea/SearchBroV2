@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
     MainWindow w; // Erstellt dein Hauptfenster
     w.show();   // Zeigt das Fenster an
     
-    
+    system("clear");
     KIStuff ki; // Objekt für die Python-Integration
     ki.UserStuff(); // Ruft die Python-Integration auf
     
