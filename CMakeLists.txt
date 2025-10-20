@@ -42,5 +42,6 @@ target_link_libraries(SearchBroV2
         Qt6::Network
         Qt6::Test
         Python::Python
+
         
 )
