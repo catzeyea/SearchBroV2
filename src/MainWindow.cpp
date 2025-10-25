@@ -18,16 +18,17 @@ MainWindow::MainWindow(QWidget *parent)
 {
     std::string output = ki.getOutput();
     //  ----- ----- ----- Window ----- ----- ----- //
-    outputField = new QLabel(this);
+    outputField = new QLineEdit(this);
     inputField = new QLineEdit(this);
     QWidget *centralWidget = new QWidget(this);
     QWidget *outputWidget = new QWidget(this);
     setCentralWidget(centralWidget);
     setMenuWidget(outputWidget);
     setAttribute(Qt::WA_TranslucentBackground);
-    //  ----- ----- ----- Style  ----- ----- ----- //
+
+    //   ----- ----- ----- Style  ----- ----- ----- //
     centralWidget->setStyleSheet(
-        "QWidget { background-color: #2b2b2b; }"
+        //"QWidget { background-color: #2b2b2b; }"
         "QLineEdit { "
         "   background-color: #2b2b2b;"
         "   color: #ffffffff;"
@@ -48,8 +49,8 @@ MainWindow::MainWindow(QWidget *parent)
     // https://doc.qt.io/qt-6/qlabel.html
     QVBoxLayout *outputLayout = new QVBoxLayout(outputWidget);
 
-    outputLayout->setContentsMargins(10, 10, 10, 10);
-    outputLayout->setSpacing(0);
+    outputLayout->setContentsMargins(1, 10, 10, 10);
+    outputLayout->setSpacing(110);
     outputLayout->addWidget(outputField, 100, Qt::AlignAbsolute);
     outputField->setAlignment(Qt::AlignBottom);
     // connect(outputField, &QLineEdit::returnPressed, this, &MainWindow::doSearchStuff);

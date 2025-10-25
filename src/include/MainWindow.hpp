@@ -19,5 +19,5 @@ private slots:
 
 private:
     QLineEdit *inputField;
-    QLabel *outputField;
+    QLineEdit *outputField;
 };
