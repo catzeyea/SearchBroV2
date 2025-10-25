@@ -1,0 +1,4 @@
+if you use hyprland you can add this to your windows.conf to make it look cool
+
+windowrule = float,class:SearchBroV2
+windowrule = size 1234 1,class:SearchBroV2

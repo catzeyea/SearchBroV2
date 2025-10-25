@@ -11,8 +11,15 @@
 // namespace py = pybind11;
 
 class KIStuff {
+    private:
+        std::string output;
     public:
+        std::string getOutput() const;
+        //void setOutput(const std::string& inputFieldText);
+
+
     // Call the Python function
         int UserStuff(std::string& inputFieldText);
-
+        void processOutput(std::string& inputFieldText);;
+   
 };

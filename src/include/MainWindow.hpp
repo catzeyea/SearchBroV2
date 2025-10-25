@@ -13,7 +13,7 @@ public:
 
 private slots:
     QString processInput();
-    std::string doSearchStuff(std::string& output);
+    void doSearchStuff();
 
 private:
     QLineEdit *inputField;

@@ -9,6 +9,10 @@
 using namespace color;
 namespace py = pybind11;
 namespace fs = std::filesystem;
+
+
+
+
 int KIStuff::UserStuff(std::string& inputFieldText) {
     static py::scoped_interpreter guard{}; 
     py::module sys = py::module::import("sys");
@@ -25,10 +29,26 @@ int KIStuff::UserStuff(std::string& inputFieldText) {
     //std::string userInput;
     
 
-        system("clear");
+
         std::cout << "Your input >>> " << green << inputFieldText << reset << "\n";
 
-        std::string output = llm.attr("generate_text")(inputFieldText).cast<std::string>();
+        output = llm.attr("generate_text")(inputFieldText).cast<std::string>();
         std::cout << "KI > " << bright_cyan << output << reset << "\n";
     return 0;
+}
+
+// void KIStuff::setOutput(const std::string& text) {
+//     output = text;
+// }
+
+std::string KIStuff::getOutput() const {
+    // Access the output from UserStuff
+    std::cout << output << std::endl;
+    return output;
+}
+
+void KIStuff::processOutput(std::string& inputFieldText) {
+    // Process the output as needed
+    std::cout << "Processed Output: " << inputFieldText << std::endl;
+    
 }

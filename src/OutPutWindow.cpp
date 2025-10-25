@@ -1,4 +1,4 @@
-#include "MainWindow.hpp"
+#include "OutPutWindow.hpp"
 #include "Colors.hpp"
 #include <QMainWindow>
 #include <QLineEdit>
@@ -8,16 +8,12 @@
 #include <iostream>
 #include <QSize>
 #include "KIStuff.hpp"
-using namespace color;
 
-KIStuff ki;
-
-
-MainWindow::MainWindow(QWidget *parent)
+KIStuff ki2;
+MainWindow2::MainWindow2(QWidget *parent)
     : QMainWindow(parent)
 {
-
-    inputField = new QLineEdit(this);
+    outputField = new QLineEdit(this);
     QWidget *centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);
 //#2b2b2b dark gray background
@@ -37,34 +33,19 @@ setAttribute(Qt::WA_TranslucentBackground);
     );
 
     QVBoxLayout *layout = new QVBoxLayout(centralWidget);
-    layout->addWidget(inputField);
+    layout->addWidget(outputField);
+    
+    //connect(outputField, &QLineEdit::returnPressed, this, &MainWindow2::processInput);
+    connect(outputField, &QLineEdit::returnPressed, this, &MainWindow2::displayOutput);
 
-    connect(inputField, &QLineEdit::returnPressed, this, &MainWindow::processInput);
+    displayOutput();
+}
+
+
+void MainWindow2::displayOutput() {
+    std::string output = ki2.getOutput();
+    outputField->setText(QString::fromStdString(output));
+    qDebug() << "Output aktualisiert:" << QString::fromStdString(output);
     
 }
-
-QString MainWindow::processInput() {
-    QString inputFieldText = inputField->text();
-    qDebug() << "Input Text:" << inputFieldText;
-    //std::cout << red << "Input Text: " <<  inputField << reset << std::endl;
-    inputField->clear();
- 
-    std::string inputString = inputFieldText.toStdString();
-    ki.UserStuff(inputString);
-    doSearchStuff();
-    return inputFieldText;
-}
-
-
-
-void MainWindow::doSearchStuff() {
-    std::string output = ki.getOutput();
-    std::cout << red << output << reset << std::endl;
-
-   
-}
-
-
-
-
-MainWindow::~MainWindow() = default;
+MainWindow2::~MainWindow2() = default;
