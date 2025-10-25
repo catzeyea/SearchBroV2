@@ -3,8 +3,10 @@
 #include <QMainWindow>
 #include <QLineEdit>
 #include <QVBoxLayout>
+#include <QLabel>
 
-class MainWindow : public QMainWindow {
+class MainWindow : public QMainWindow
+{
     Q_OBJECT
 
 public:
@@ -17,4 +19,5 @@ private slots:
 
 private:
     QLineEdit *inputField;
+    QLabel *outputField;
 };

@@ -4,7 +4,8 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 
-class MainWindow2 : public QMainWindow {
+class MainWindow2 : public QMainWindow
+{
     Q_OBJECT
 
 public:
@@ -12,7 +13,6 @@ public:
     ~MainWindow2();
 
     void displayOutput();
-
 
 private:
     QLineEdit *outputField;

@@ -5,19 +5,17 @@
 #include <filesystem>
 #include <string>
 #include <QDebug>
-//std::string& inputFieldText
+// std::string& inputFieldText
 using namespace color;
 namespace py = pybind11;
 namespace fs = std::filesystem;
 
-
-
-
-int KIStuff::UserStuff(std::string& inputFieldText) {
-    static py::scoped_interpreter guard{}; 
+int KIStuff::UserStuff(std::string &inputFieldText)
+{
+    static py::scoped_interpreter guard{};
     py::module sys = py::module::import("sys");
 
-    //Path to Python Scripts
+    // Path to Python Scripts
     auto build_path = fs::current_path();
     auto python_path = build_path.parent_path() / "src" / "KI";
 
@@ -26,14 +24,12 @@ int KIStuff::UserStuff(std::string& inputFieldText) {
     // Load Python Script
     py::module llm = py::module::import("llm_module");
 
-    //std::string userInput;
-    
+    // std::string userInput;
 
+    std::cout << "Your input >>> " << green << inputFieldText << reset << "\n";
 
-        std::cout << "Your input >>> " << green << inputFieldText << reset << "\n";
-
-        output = llm.attr("generate_text")(inputFieldText).cast<std::string>();
-        std::cout << "KI > " << bright_cyan << output << reset << "\n";
+    output = llm.attr("generate_text")(inputFieldText).cast<std::string>();
+    std::cout << "KI > " << bright_cyan << output << reset << "\n";
     return 0;
 }
 
@@ -41,14 +37,15 @@ int KIStuff::UserStuff(std::string& inputFieldText) {
 //     output = text;
 // }
 
-std::string KIStuff::getOutput() const {
+std::string KIStuff::getOutput() const
+{
     // Access the output from UserStuff
-    std::cout << output << std::endl;
+    // std::cout << output << std::endl;
     return output;
 }
 
-void KIStuff::processOutput(std::string& inputFieldText) {
+void KIStuff::processOutput(std::string &inputFieldText)
+{
     // Process the output as needed
     std::cout << "Processed Output: " << inputFieldText << std::endl;
-    
 }

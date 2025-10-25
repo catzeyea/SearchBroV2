@@ -16,36 +16,24 @@ MainWindow2::MainWindow2(QWidget *parent)
     outputField = new QLineEdit(this);
     QWidget *centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);
-//#2b2b2b dark gray background
-// #3b3b3b slightly lighter gray for input field
+    // #2b2b2b dark gray background
+    //  #3b3b3b slightly lighter gray for input field
 
-setAttribute(Qt::WA_TranslucentBackground);
-    centralWidget->setStyleSheet(
-        "QWidget { background-color: #2b2b2b; }"
-        "QLineEdit { "
-        "   background-color: #2b2b2b;"
-        "   color: #ffffffff;"
-        "   border: 2px solid #4b4b4b;"
-        "   border-radius: 5px;"
-        "   padding: 5px;"
-        "   font-size: 14px;"
-        "}"
-    );
+    setAttribute(Qt::WA_TranslucentBackground);
 
     QVBoxLayout *layout = new QVBoxLayout(centralWidget);
     layout->addWidget(outputField);
-    
-    //connect(outputField, &QLineEdit::returnPressed, this, &MainWindow2::processInput);
+
+    // connect(outputField, &QLineEdit::returnPressed, this, &MainWindow2::processInput);
     connect(outputField, &QLineEdit::returnPressed, this, &MainWindow2::displayOutput);
 
     displayOutput();
 }
 
-
-void MainWindow2::displayOutput() {
+void MainWindow2::displayOutput()
+{
     std::string output = ki2.getOutput();
     outputField->setText(QString::fromStdString(output));
     qDebug() << "Output aktualisiert:" << QString::fromStdString(output);
-    
 }
 MainWindow2::~MainWindow2() = default;
