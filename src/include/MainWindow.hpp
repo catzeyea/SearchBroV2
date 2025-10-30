@@ -3,8 +3,10 @@
 #include <QMainWindow>
 #include <QLineEdit>
 #include <QVBoxLayout>
+#include <QLabel>
 
-class MainWindow : public QMainWindow {
+class MainWindow : public QMainWindow
+{
     Q_OBJECT
 
 public:
@@ -13,8 +15,9 @@ public:
 
 private slots:
     QString processInput();
-    std::string doSearchStuff(std::string& output);
+    void doSearchStuff();
 
 private:
     QLineEdit *inputField;
+    QLineEdit *outputField;
 };

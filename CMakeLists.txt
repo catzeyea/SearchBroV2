@@ -23,6 +23,8 @@ add_executable(SearchBroV2
     src/main.cpp
     src/MainWindow.cpp
     src/include/MainWindow.hpp
+    src/include/OutPutWindow.hpp
+    src/OutPutWindow.cpp
     src/KIStuff.cpp
 
 )
@@ -42,5 +44,6 @@ target_link_libraries(SearchBroV2
         Qt6::Network
         Qt6::Test
         Python::Python
+
         
 )
