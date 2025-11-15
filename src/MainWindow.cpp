@@ -8,6 +8,7 @@
 #include <iostream>
 #include <QSize>
 #include <QLabel>
+#include <QToolBar>
 #include "qoverload.h"
 #include "KIStuff.hpp"
 using namespace color;
@@ -20,14 +21,16 @@ MainWindow::MainWindow(QWidget *parent)
     //  ----- ----- ----- Window ----- ----- ----- //
     outputField = new QLineEdit(this);
     inputField = new QLineEdit(this);
-    QWidget *centralWidget = new QWidget(this);
+    QWidget *inputWidget = new QWidget(this);
     QWidget *outputWidget = new QWidget(this);
-    setCentralWidget(centralWidget);
+    setCentralWidget(inputWidget);
     setMenuWidget(outputWidget);
     setAttribute(Qt::WA_TranslucentBackground);
 
+    // ----- ----- ----- Layout Overall ----- ----- ----- //
+    QVBoxLayout *layout = new QVBoxLayout(inputWidget);
     //   ----- ----- ----- Style  ----- ----- ----- //
-    centralWidget->setStyleSheet(
+    inputWidget->setStyleSheet(
         //"QWidget { background-color: #2b2b2b; }"
         "QLineEdit { "
         "   background-color: #2b2b2b;"
@@ -37,27 +40,32 @@ MainWindow::MainWindow(QWidget *parent)
         "   padding: 5px;"
         "   font-size: 14px;"
         "}");
+
+    outputWidget->setStyleSheet(
+        "QLineEdit { "
+        "   background-color: #2b2b2b;"
+        "   color: #ffffffff;"
+        "   border: 2px solid #4b4b4b;"
+        "   border-radius: 5px;"
+        "   padding: 5px;"
+        "   font-size: 14px;"
+        "}");
+
     //  ----- ----- ----- Layout - INPUT ----- ----- ----- //
-    QVBoxLayout *layout = new QVBoxLayout(centralWidget);
-    layout->setContentsMargins(0, 0, 0, 0);
-    layout->setSpacing(0);
-    layout->addWidget(inputField, 0, Qt::AlignTop);
+
+    layout->addWidget(inputField);
     inputField->setAlignment(Qt::AlignCenter);
-    connect(inputField, &QLineEdit::returnPressed, this, &MainWindow::processInput);
 
     //  ----- ----- ----- Layout - OUTPUT ----- ----- ----- //
+
     // https://doc.qt.io/qt-6/qlabel.html
-    QVBoxLayout *outputLayout = new QVBoxLayout(outputWidget);
 
-    outputLayout->setContentsMargins(1, 10, 10, 10);
-    outputLayout->setSpacing(110);
-    outputLayout->addWidget(outputField, 100, Qt::AlignAbsolute);
-    outputField->setAlignment(Qt::AlignBottom);
-    // connect(outputField, &QLineEdit::returnPressed, this, &MainWindow::doSearchStuff);
-    //  QString Qoutput = QString::fromStdString(output);
-    //  outputField->setText(Qoutput);
+    layout->addWidget(outputField);
+    outputField->setAlignment(Qt::AlignCenter);
+
+    //  ----- ----- ----- Signals & Slots ----- ----- ----- //
+    connect(inputField, &QLineEdit::returnPressed, this, &MainWindow::processInput);
 }
-
 QString MainWindow::processInput()
 {
     QString inputFieldText = inputField->text();
