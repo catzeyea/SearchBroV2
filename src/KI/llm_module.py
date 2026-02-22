@@ -4,7 +4,7 @@ import json
 def generate_text(prompt: str) -> str:
     url = "http://localhost:11434/api/chat"
     data = {
-        "model": "llama3.2:3b",
+        "model": "lfm2.5-thinking:latest",
         "messages": [
             {"role": "user", "content": prompt}
         ],

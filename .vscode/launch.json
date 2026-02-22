@@ -20,7 +20,8 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "visualizerFile": "/home/hose/.config/Code/User/workspaceStorage/5465667f43aca033a41557a029f112f6/tonka3000.qtvsctools/qt.natvis.xml"
         }
     ]
 }

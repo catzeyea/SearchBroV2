@@ -25,6 +25,8 @@ build/
 *.o
 *.obj
 _pycache/
+.cache/clangd/index
+.continue/rules/new-rule.md
 # Precompiled Headers
 *.gch
 *.pch
@@ -57,3 +59,6 @@ _pycache/
 
 # debug information files
 *.dwo
+.continue/rules/new-rule.md
+src/KI/__pycache__/llm_module.cpython-313.pyc
+src/KI/__pycache__/llm_module.cpython-314.pyc
