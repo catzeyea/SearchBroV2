@@ -1,4 +1,5 @@
 build/
+src/KI/__pycache__
 
 *.o
 *.exe
@@ -24,7 +25,6 @@ build/
 *.lo
 *.o
 *.obj
-_pycache/
 # Precompiled Headers
 *.gch
 *.pch
