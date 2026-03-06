@@ -7,9 +7,9 @@
 #include <QDebug>
 #include <iostream>
 #include <QSize>
-#include "KIStuff.hpp"
+#include "Actions.hpp"
 
-KIStuff ki2;
+Actions action;
 MainWindow2::MainWindow2(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -32,7 +32,7 @@ MainWindow2::MainWindow2(QWidget *parent)
 
 void MainWindow2::displayOutput()
 {
-    std::string output = ki2.getOutput();
+    std::string output = action.getOutput();
     outputField->setText(QString::fromStdString(output));
     qDebug() << "Output aktualisiert:" << QString::fromStdString(output);
 }
