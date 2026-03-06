@@ -4,6 +4,8 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 #include <QLabel>
+#include <QTabWidget>
+#include <QMap>
 
 class MainWindow : public QMainWindow
 {
@@ -14,10 +16,12 @@ public:
     ~MainWindow();
 
 private slots:
-    QString processInput();
-    void doSearchStuff();
+    void addNewTab();
 
 private:
-    QLineEdit *inputField;
-    QLineEdit *outputField;
+    void setupTabUI(int tabIndex, QWidget *tabWidget);
+
+    QTabWidget *tabWidget;
+    QMap<int, QLineEdit*> inputFields;
+    int tabCounter;
 };

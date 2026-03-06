@@ -18,6 +18,9 @@ find_package(pybind11 REQUIRED)
 # Python (Interpreter + Development) findens
 find_package(Python COMPONENTS Interpreter Development REQUIRED)
 
+# CURL finden
+find_package(CURL REQUIRED)
+
 # Executable
 add_executable(SearchBroV2
     src/main.cpp
@@ -25,17 +28,18 @@ add_executable(SearchBroV2
     src/include/MainWindow.hpp
     src/include/OutPutWindow.hpp
     src/OutPutWindow.cpp
-    src/KIStuff.cpp
-
+    src/Actions.cpp
+    src/ai/Communication.cpp
+    src/ai/Communication.hpp
 )
 
 
 
 # Include-Verzeichnis
-target_include_directories(SearchBroV2 PRIVATE ${pybind11_INCLUDE_DIRS} ${Python_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/src/include)
+target_include_directories(SearchBroV2 PRIVATE ${pybind11_INCLUDE_DIRS} ${Python_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/src/include ${CURL_INCLUDE_DIRS})
 
 
-# Qt + pybind11 + Python verlinken
+# Qt + pybind11 + Python + CURL verlinken
 target_link_libraries(SearchBroV2
     PRIVATE
         Qt6::Widgets
@@ -44,6 +48,5 @@ target_link_libraries(SearchBroV2
         Qt6::Network
         Qt6::Test
         Python::Python
-
-        
+        CURL::libcurl
 )
